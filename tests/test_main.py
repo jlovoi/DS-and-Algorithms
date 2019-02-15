@@ -95,12 +95,12 @@ def test_linkedlist_structure():
 	for i in range(0, 10):
 		assert myLinkedList.get(i) == arr[i]
 
-"""
+
 def test_linkedlist_rem():
 	myLinkedList = linkedlist.LinkedList()
 
-	for i in range(0, len(arrayArray[0])):
-		myLinkedList.insert(arrayArray[0][i])
+	for i in range(0, len(prob1)):
+		myLinkedList.insert(prob1[i])
 
 	assert myLinkedList.rem(0) == 4
 
@@ -112,7 +112,7 @@ def test_linkedlist_rem():
 
 	for i in range(0, myLinkedList.length):
 		assert myLinkedList.get(i) == arr[i]
-"""
+
 
 if __name__ == '__main__':
     pytest
