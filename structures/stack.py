@@ -19,11 +19,12 @@ class Stack():
 		self._stack.append(num)
 		self._count += 1
 
-	def pop(self):
+	def stack_pop(self):
 		# if stack is not empty, pop (remove and return) the most recently pushed element
-		if not self.isEmpty:
+		if not self.isEmpty():
 			popped = self._stack[self._count-1]
-			self._stack.remove(self._count-1)
+			self._stack.pop(self._count-1)
+			self._count -= 1
 			return popped
 		else:
 			raise ValueError("Stack is empty, nothing to pop!")

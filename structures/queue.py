@@ -45,7 +45,7 @@ class Queue():
 			else:
 				self._tail = 19
 			dequeued = self._queue[self._tail]
-			self._queue.remove(self._tail)
+			self._queue.pop(self._tail)
 			return dequeued
 		else:
 			raise ValueError("Queue is Empty!")

@@ -33,34 +33,36 @@ def test_stack_structure():
 
 def test_stack_isEmpty():
 	myStack = stack.Stack()
-	assertTrue(myStack.isEmpty())
+	assert myStack.isEmpty() == True
 
 	myStack.push(5)
-	assertFalse(myStack.isEmpty())
+	assert myStack.isEmpty() == False
 
-	myStack.pop()
-	assertTrue(myStack.isEmpty())
-		
+	myStack.stack_pop()
+	assert myStack.isEmpty() == True
+	
+
 def test_queue_isEmpty():
 	myQueue = queue.Queue()
-	assertTrue(myQueue.isEmpty())
+	assert myQueue.isEmpty() == True
 
 	myQueue.enqueue(5)
-	assertFalse(myQueue.isEmpty())
+	assert myQueue.isEmpty() == False
 
 	myQueue.dequeue()
-	assertTrue(myQueue.isEmpty)
+	assert myQueue.isEmpty() == True
 
 def test_queue_isFull():
 	myQueue = queue.Queue()
 	array = [10] * 20
 
-	assertFalse(myQueue.isFull())
+	assert myQueue.isFull() == False
 
 	for i in range(0, len(array)):
 		myQueue.enqueue(array[i])
 
-	assertTrue(myQueue.isFull())
+	assert myQueue.isFull() == True
+
 
 def test_queue_structure():
 	myQueue = queue.Queue()
@@ -70,6 +72,10 @@ def test_queue_structure():
 
 	for i in range(0, len(arrayArray[0])):
 		assertEqual(myQueue.dequeue(), arrayArray[0][i])
+
+	myQueue.enqueue(5)
+	dequeued = myQueue.dequeue()
+	assert dequeued == 5
 
 
 if __name__ == '__main__':
