@@ -3,6 +3,7 @@ from algorithms import insertion_sort as insert
 from algorithms import heap_sort as heap
 from structures import stack as stack
 from structures import queue as queue
+from structures import linked_list as linkedlist
 
 import pytest
 
@@ -76,6 +77,16 @@ def test_queue_structure():
 	myQueue.enqueue(5)
 	dequeued = myQueue.dequeue()
 	assert dequeued == 5
+
+
+def test_linkedlist_structure():
+	myLinkedList = linkedlist.LinkedList()
+
+	for i in range(0, len(arrayArray[0])):
+		myLinkedList.insert(arrayArray[0][i])
+
+	for i in range(0, len(arrayArray[0])):
+		assertEqual(myLinkedList.get(i), arrayArray[0][i])
 
 
 if __name__ == '__main__':
