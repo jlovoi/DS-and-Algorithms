@@ -22,9 +22,10 @@ class LinkedList():
 		if index == None:
 			index = self.length
 
-		# if this is the first insertion, just set the head node
+		# if this is the first insertion, just set the head and tail node
 		if index == 0 and self.head.next == None:
 			self.head.node = number
+			self.tail = self.head
 
 		# inserting new head
 		elif index == 0:
@@ -38,7 +39,7 @@ class LinkedList():
 			self.tail.next = to_insert
 			self.tail = to_insert
 
-
+		# inserting inbetween nodes
 		else:
 			nodes = self.traverse(index - 1)
 			to_insert = Node(num=number, prev=nodes[0])
@@ -46,6 +47,8 @@ class LinkedList():
 				to_insert.next = nodes[1]
 			nodes[0].next = to_insert
 			nodes[1].prev = to_insert
+
+		self.length += 1
 
 
 	def traverse(self, index):
@@ -67,7 +70,7 @@ class LinkedList():
 			return ValueError("Node does not exist!")
 
 		ret.append(node)
-		if node.next != self.tail:
+		if node != self.tail:
 			ret.append(node.next)
 
 		return ret
@@ -78,9 +81,10 @@ class LinkedList():
 		return self.traverse(index)[0].node
 
 
-	def rem(self, index):
+	def rem(self, index): # index = 0
 		# remove node[index] from the list, return value
-		ret = self.traverse(index)[0]
+		ret = self.traverse(index)[0] #traverse(0)[0] = 
+		self.length -= 1
 
 		# if it is neither the head nor the tail
 		if ret.prev != None and ret.next != None:
@@ -89,13 +93,13 @@ class LinkedList():
 			return ret.node
 
 		# if it is the tail
-		elif ret.prev != None:
+		elif ret == self.tail:
 			ret.prev.next = None
 			self.tail = ret.prev
 			return ret.node
 
 		# if it is the head
-		elif ret.next != None:
+		elif ret == self.head:
 			ret.next.prev = None
 			self.head = ret.next
 			return ret.node
@@ -108,3 +112,26 @@ class Node():
 		self.node = num
 		self.prev = prev
 		self.next = nnode
+
+if __name__=='__main__':
+	arrayArray = [
+        [4, 1, 3, 2, 7, 16, 9, 10, 14, 8],
+        [2, 16, 4, 9, 14, 7, 8, 10, 1, 3],
+    ]
+
+	myLinkedList = LinkedList()
+
+	for i in range(0, 10):
+		myLinkedList.insert(arrayArray[0][i])
+
+
+	print ("1: ",myLinkedList.rem(0) == 4)
+
+	print ("2: ",myLinkedList.rem(8) == 8)
+
+	print ("3: ",myLinkedList.rem(4) == 16)
+
+	arr = [1, 3, 2, 7, 9, 10, 14]
+
+	for i in range(0, myLinkedList.length):
+		print (myLinkedList.get(i) == arr[i])

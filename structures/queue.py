@@ -40,12 +40,12 @@ class Queue():
 	def dequeue(self):
 		# Check that queue is not empty
 		if not self.isEmpty():
-			if self._tail != 0:
-				self._tail -= 1
+			dequeued = self._queue[self._head]
+			self._queue[self._head] = None
+			if self._head != 19:
+				self._head += 1
 			else:
-				self._tail = 19
-			dequeued = self._queue[self._tail]
-			self._queue.pop(self._tail)
+				self._head = 0
 			return dequeued
 		else:
 			raise ValueError("Queue is Empty!")

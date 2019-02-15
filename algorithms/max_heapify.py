@@ -18,3 +18,10 @@ def heapify(arr, index):
 		arr[index] = temp
 		heapify(arr, swap)
 	return arr
+
+if __name__ == '__main__':
+	prob1 = [4, 1, 3, 2, 7, 16, 9, 10, 14, 8]
+
+	print (heapify(prob1, 1))
+
+	
