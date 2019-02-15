@@ -78,6 +78,29 @@ class LinkedList():
 		return self.traverse(index)[0].node
 
 
+	def rem(self, index):
+		# remove node[index] from the list, return value
+		ret = self.traverse(index)[0]
+
+		# if it is neither the head nor the tail
+		if ret.prev != None and ret.next != None:
+			ret.prev.next = ret.next
+			ret.next.prev = ret.prev
+			return ret.node
+
+		# if it is the tail
+		elif ret.prev != None:
+			ret.prev.next = None
+			self.tail = ret.prev
+			return ret.node
+
+		# if it is the head
+		elif ret.next != None:
+			ret.next.prev = None
+			self.head = ret.next
+			return ret.node
+
+
 
 class Node():
 	#The node will hold the value and pointers to the next and previous nodes

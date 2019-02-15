@@ -89,5 +89,23 @@ def test_linkedlist_structure():
 		assertEqual(myLinkedList.get(i), arrayArray[0][i])
 
 
+def test_linkedlist_rem():
+	myLinkedList = linkedlist.LinkedList()
+
+	for i in range(0, len(arrayArray[0])):
+		myLinkedList.insert(arrayArray[0][i])
+
+	assert myLinkedList.rem(0) == 4
+
+	assert myLinkedList.rem(8) == 8
+
+	assert myLinkedList.rem(4) == 16
+
+	arr = [1, 3, 2, 7, 9, 10, 14]
+
+	for i in range(0, myLinkedList.length):
+		assert myLinkedList.get(i) == arr[i]
+
+
 if __name__ == '__main__':
     pytest
