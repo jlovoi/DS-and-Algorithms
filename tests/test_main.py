@@ -104,9 +104,15 @@ def test_linkedlist_rem():
 
 	assert myLinkedList.rem(0) == 4
 
+	assert myLinkedList.length == 9
+
 	assert myLinkedList.rem(8) == 8
 
+	assert myLinkedList.length == 8
+
 	assert myLinkedList.rem(4) == 16
+
+	assert myLinkedList.length == 7
 
 	arr = [1, 3, 2, 7, 9, 10, 14]
 
