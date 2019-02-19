@@ -68,6 +68,26 @@ class BinarySearchTree():
 		elif val > current_parent.val:
 			current_parent.rchild = to_insert
 
+
+	def get_max(self):
+		# return the node with max value
+		node = self.root
+		while node.rchild != None:
+			node = node.rchild
+
+		return node
+
+
+	def get_min(self):
+		# return the node with min value
+		node = self.root
+		while node.lchild != None:
+			node = node.lchild
+
+		return node
+
+		
+
 	def __repr__(self):
 		string = str(self.root.val) + str(self.root.lchild.val) + str(self.root.lchild.rchild.val) + str(self.root.rchild.val)
 		return string
@@ -76,11 +96,11 @@ class BinarySearchTree():
 
 
 if __name__ == '__main__':
-	array = [5, 1, 2, 7]
+	array = [5, 1, 0, 7]
 	bst = BinarySearchTree()
 
 	for i in range(0, len(array)):
 		#print (array[i])
 		bst.insert(array[i])
 
-	print(bst.search(8))
+	print(bst.get_min().val)
