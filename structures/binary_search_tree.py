@@ -19,8 +19,21 @@ class BinarySearchTree():
 		self.root = None
 
 
-	#def search(self, val):
+	def search(self, val):
+		# Empty Check
+		if self.root == None:
+			return None
+
 		# Search for the proper placement of given value
+		current_node = self.root
+
+		while current_node != None and current_node.val != val:
+			if val < current_node.val:
+				current_node = current_node.lchild
+			else:
+				current_node = current_node.rchild
+
+		return current_node
 
 
 	def insert(self, val):
@@ -67,7 +80,7 @@ if __name__ == '__main__':
 	bst = BinarySearchTree()
 
 	for i in range(0, len(array)):
-		print (array[i])
+		#print (array[i])
 		bst.insert(array[i])
 
-	print(repr(bst))
+	print(bst.search(8))
