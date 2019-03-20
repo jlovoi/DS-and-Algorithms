@@ -96,7 +96,7 @@ class BinarySearchTree():
 
 
 if __name__ == '__main__':
-	array = [5, 1, 0, 7]
+	array = [5, 1, 0, 19, 12, 8, 7]
 	bst = BinarySearchTree()
 
 	for i in range(0, len(array)):
